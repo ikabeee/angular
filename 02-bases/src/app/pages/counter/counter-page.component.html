@@ -1,0 +1,7 @@
+<h1>Counter Page</h1>
+<p>Current counter: {{ counter }}</p>
+<p>Current counter signal: {{ counterSignal() }}</p> <!-- You called as a function -->
+
+<button (click)="increaseBy(1)">Add one</button>
+<button (click)="decreaseBy(1)">Subtract one</button>
+<button (click)="resetCounter()">Reset</button>
