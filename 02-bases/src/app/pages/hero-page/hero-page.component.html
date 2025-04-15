@@ -1,0 +1,30 @@
+<h1>{{ name() }}</h1>
+<dl>
+  <div class="flex gap-2 mb-2 mt-2">
+    <div class="flex gap-2">
+      <td>Nombre:</td>
+      <dd>{{ name() }}</dd>
+    </div>
+    <div class="flex gap-2">
+      <td>Edad:</td>
+      <dd>{{ age() }}</dd>
+    </div>
+    <div class="flex gap-2">
+      <td>Método:</td>
+      <dd>{{ getHeroDescription() }}</dd>
+    </div>
+    <div class="flex gap-2">
+      <td>Capitalizado:</td>
+      <dd> {{ upperName() }} </dd>
+    </div>
+  </div>
+</dl>
+<div class="flex gap-2 space-between">
+  <button (click)="changeHero()" class="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">
+    Cambiar nombre
+  </button>
+  <button (click)="changeAge()"
+    class="p-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 cursor-pointer">Cambiar edad</button>
+  <button (click)="resetForm()"
+    class="p-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 cursor-pointer">Reset</button>
+</div>
