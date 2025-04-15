@@ -14,9 +14,9 @@ export class HeroPageComponent {
     return `My name is ${this.name()} and I'am ${this.age()} years old`;
   }
   changeHero(){
-    this.name.update((prev)=> prev = 'SpiderMan');
-    this.upperName.update((prev)=> prev = this.name().toUpperCase());
-    this.age.update((prev)=> prev = 22);
+    this.name.set('SpiderMan');
+    this.upperName.set(this.name().toUpperCase());
+    this.age.set(30);
   }
   resetForm(){
     this.name.set('IronMan');
@@ -27,3 +27,4 @@ export class HeroPageComponent {
     this.age.update((prev)=> prev = 60);
   }
 }
+  
