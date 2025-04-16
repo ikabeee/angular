@@ -1,0 +1,18 @@
+<h3>Listado fuertes</h3>
+<ul>
+  @for(character of characters(); track character.id; let idx=$index, e=$even){
+    @if( character.power > 500){
+      <li class="ml-2">
+        <span>
+          {{idx + 1}} - {{character.name}}
+        </span>
+        <strong [class.text-red-500]="character.power > 9000" [class.text-blue-500]="character.power < 9000"
+          [class.text-black]="character.power == 9000">
+          ({{character.power}})
+        </strong>
+      </li>
+    } @else {
+      <li><strong>Aquí no hay nadie</strong></li>
+    }
+  }
+</ul>

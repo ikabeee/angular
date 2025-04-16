@@ -2,6 +2,8 @@
 
 <h1 class="">Dragonball page</h1>
 <section class="flex flex-wrap">
+  <!--Dragonball-character-add-->
+  <!--Desde aqui-->
   <div class="w-full sm:w-1/2">
     <h3>Agregar: {{ name() }}</h3>
     <input
@@ -23,24 +25,10 @@
     >
     <button (click)="addCharacter()" class="bg-blue-500 p-2 mt-2 rounded-xl text-white">Agregar</button>
   </div>
+  <!--Hasta aquí-->
   <div class="w-full sm:w-1/2">
-    <h3>Listado</h3>
-    <ul>
-      @for(character of characters(); track character.id; let idx=$index, e=$even){
-        @if( character.power > 500){
-          <li class="ml-2">
-            <span>
-              {{idx + 1}} - {{character.name}}
-            </span>
-            <strong [class.text-red-500]="character.power > 9000" [class.text-blue-500]="character.power < 9000"
-              [class.text-black]="character.power == 9000">
-              ({{character.power}})
-            </strong>
-          </li>
-        } @else {
-          <li><strong>Aquí no hay nadie</strong></li>
-        }
-      }
-    </ul>
+    <dragonball-character-list
+    listName="Listado de personajes"
+    [characters]="characters()"/>
   </div>
 </section>
