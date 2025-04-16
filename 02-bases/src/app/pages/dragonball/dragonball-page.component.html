@@ -1,0 +1,46 @@
+<!--Los componentes deben tener una responsabilidad única-->
+
+<h1 class="">Dragonball page</h1>
+<section class="flex flex-wrap">
+  <div class="w-full sm:w-1/2">
+    <h3>Agregar: {{ name() }}</h3>
+    <input
+    placeholder="Nombre"
+    type="text"
+      class="block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      [value]="name()"
+      (change)="name.set(txtName.value)"
+      #txtName
+      >
+      <h3>{{power()}}</h3>
+    <input
+    placeholder="Poder"
+    type="number"
+    class="block mt-2 w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+    [value]="power()"
+    (change)="power.set(+txtPower.value)"
+    #txtPower
+    >
+    <button (click)="addCharacter()" class="bg-blue-500 p-2 mt-2 rounded-xl text-white">Agregar</button>
+  </div>
+  <div class="w-full sm:w-1/2">
+    <h3>Listado</h3>
+    <ul>
+      @for(character of characters(); track character.id; let idx=$index, e=$even){
+        @if( character.power > 500){
+          <li class="ml-2">
+            <span>
+              {{idx + 1}} - {{character.name}}
+            </span>
+            <strong [class.text-red-500]="character.power > 9000" [class.text-blue-500]="character.power < 9000"
+              [class.text-black]="character.power == 9000">
+              ({{character.power}})
+            </strong>
+          </li>
+        } @else {
+          <li><strong>Aquí no hay nadie</strong></li>
+        }
+      }
+    </ul>
+  </div>
+</section>
