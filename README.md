@@ -1,1 +1,3 @@
-# Curso Angular
+# Angular Course
+
+By: Fernando Herrera:)
