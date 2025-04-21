@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { Character } from '../interfaces/Character';
 
 //DI = Dependency Injection
@@ -9,26 +9,31 @@ import { Character } from '../interfaces/Character';
   * Esto es lo que se conoce como "singleton" en Angular.
 */
 
-@Injectable({ providedIn: 'root' })
-export class DragonballService {
-  characters = signal<Character[]>([
-    {
-      id: 1,
-      name: 'Goku',
-      power: 9000,
-    },
-    {
-      id: 2,
-      name: 'Vegeta',
-      power: 8500,
-    },
-  ]);
+function loadFromLocalStorage() {
+  const characters = localStorage.getItem('characters');
+  return characters ? JSON.parse(characters) : [];
+}
 
-  addCharacter(character: Character){
-    this.characters.update((current)=> [...current, character]);
+@Injectable({ providedIn: 'root' }) //Nivel global de la aplicación
+// @Injectable({ providedIn: 'any' }) //Nivel de cada módulo
+// @Injectable({ providedIn: 'platform' }) //Nivel de la plataforma
+export class DragonballService {
+  characters = signal<Character[]>([loadFromLocalStorage()]);
+
+  saveToLocalStorage = effect(() => {
+    localStorage.setItem('characters', JSON.stringify(this.characters()))
+  })
+  addCharacter(character: Character) {
+    this.characters.update((current) => [...current, character]);
   }
 
-  constructor() { }
+  /*
+  *Los efectos son funciones que se ejecutan cuando una señal cambia
+  *En este caso, se ejecuta cuando la señal characters cambia
+  * Se ejecuta una vez al cargar la aplicación
+  * y cada vez que se añade un nuevo personaje
+  * y se guarda en el localStorage
+  */
 }
 
 

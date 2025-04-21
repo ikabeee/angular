@@ -5,13 +5,13 @@
 <section class="flex flex-wrap gap-4">
   <div class="w-full sm:w-1/2 border border-gray-300 rounded-md p-4">
     <dragonball-character-add
-    (newCharacter)="addCharacter($event)"
+    (newCharacter)="dragonBallService.addCharacter($event)"
     />
     <!-- Event es el valor emitido -->
   </div>
   <div class="w-full sm:w-1/2 border border-gray-300 rounded-md p-4">
     <dragonball-character-list
     listName="Listado de personajes"
-    [characters]="characters()"/>
+    [characters]="dragonBallService.characters()"/>
   </div>
 </section>

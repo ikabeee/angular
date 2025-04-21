@@ -1,0 +1,14 @@
+{
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "cpp": true
+    },
+    "cSpell.words": [
+        "classpath",
+        "libpeerconnection",
+        "testem"
+    ]
+}
