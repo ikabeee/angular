@@ -1,3 +1,7 @@
 
 #History files
 .history
+
+# Environment files
+.env
+environments/
