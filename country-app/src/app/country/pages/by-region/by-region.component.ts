@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
+import { Country } from '../../components/interfaces/country.interface';
 
 @Component({
   selector: 'app-by-region',
@@ -8,5 +9,5 @@ import { CountryListComponent } from "../../components/country-list/country-list
   styles: ``
 })
 export default class ByRegionComponent {
-
+  countries = signal<Country[]>([])
 }

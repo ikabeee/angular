@@ -6,8 +6,5 @@ import { Component, input, output } from '@angular/core';
 })
 export class CountrySearchInputComponent {
   placeholder = input('Buscar');
-  value = output<String>();
-  onSearch (value: string){
-    console.log({value})
-  }
+  value = output<string>();
 }
