@@ -5,3 +5,7 @@
 # Environment files
 .env
 environments/
+
+# Config files
+.vscode/
+.vscode-test/
