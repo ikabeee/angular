@@ -1,48 +1,32 @@
-<section>
-  <h1 class="text-2xl font-bold">Basic pipes</h1>
-  <h3 class="text-xl font-thin"></h3>
+<section class="mx-5">
+  <h1 class="text-2xl font-bold pt-4">Basic pipes</h1>
+  <h3 class="text-xl font-thin">Pipes on Angular</h3>
 </section>
-<div class="stats shadow">
+<div class="stats shadow pt-4 w-full">
   <div class="stat">
     <div class="stat-figure text-primary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        class="inline-block h-8 w-8 stroke-current"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+        </path>
       </svg>
     </div>
-    <div class="stat-title">Total Likes</div>
-    <div class="stat-value text-primary">25.6K</div>
-    <div class="stat-desc">21% more than last month</div>
+    <div class="stat-title">Lower case pipe</div>
+    <div class="stat-value text-primary">{{nameUpper() | lowercase}}</div>
+    <div class="stat-desc">{{nameUpper()}}</div>
   </div>
 
   <div class="stat">
     <div class="stat-figure text-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        class="inline-block h-8 w-8 stroke-current"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M13 10V3L4 14h7v7l9-11h-7z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
       </svg>
     </div>
-    <div class="stat-title">Page Views</div>
-    <div class="stat-value text-secondary">2.6M</div>
-    <div class="stat-desc">21% more than last month</div>
+    <div class="stat-title">Uppercase pipe</div>
+    <div class="stat-value text-secondary">{{nameLower() | uppercase}}</div>
+    <div class="stat-desc">{{nameLower()}}</div>
   </div>
 
   <div class="stat">
@@ -53,8 +37,74 @@
         </div>
       </div>
     </div>
-    <div class="stat-value">86%</div>
-    <div class="stat-title">Tasks done</div>
+    <div class="stat-value">Title case pipe</div>
+    <div class="stat-title">{{fullName() | titlecase}}</div>
     <div class="stat-desc text-secondary">31 tasks remaining</div>
   </div>
+</div>
+<div class="divider"></div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full flex">
+  <div class="stat">
+    <div class="stat-figure text-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <div class="stat-title">Date Pipe</div>
+    <div class="stat-value">{{ customDate() | date }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+        </path>
+      </svg>
+    </div>
+    <div class="stat-title">Date | Custom 'yyyy MM'</div>
+    <div class="stat-value">{{ customDate() | date: 'yyyy MM' : 'GMT-6'}}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+        </path>
+      </svg>
+    </div>
+    <div class="stat-title">Date | Short| GMT-6 </div>
+    <div class="stat-value">{{ customDate() | date: 'long' : 'GMT-6'}}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-figure text-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        class="inline-block h-8 w-8 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+        </path>
+      </svg>
+    </div>
+    <div class="stat-title">Date | 'dd MM' </div>
+    <div class="stat-value">{{ customDate() | date: 'dd MM' : 'GMT-6'}}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="flex flew-row gap-2">
+  <h1 class="text-2xl font-bold">Locale actual:
+    <span class="badge badge-secondary">ES</span>
+  </h1>
+  <button class="btn btn-primary">Cambiar en Frances</button>
+  <button class="btn btn-primary">Changer en espanol</button>
 </div>
