@@ -13,12 +13,22 @@
 
 <div class="divider my-2"></div>
 
-<div class="overflow-x-auto w-full table-xs">
+<section class="my-2">
+  <h1 class="text-2xl font-bold mb-2">Custom pipes</h1>
+  <div class="flex gap-2 justify-end w-full">
+    <button class="btn btn-primary">Por nombre</button>
+    <button class="btn btn-primary">Puede volar</button>
+    <button class="btn btn-primary">Por color</button>
+    <button class="btn btn-primary">Por Creador</button>
+  </div>
+</section>
+
+<div class="overflow-x-auto w-full table-m">
   <table class="table">
-    <!-- head -->
+
     <thead>
       <tr>
-        <th></th>
+        <th>Id</th>
         <th>Nombre</th>
         <th>Puede volar</th>
         <th>Color</th>
@@ -26,27 +36,25 @@
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
+      @for(hero of heroes(); track hero.id; let i = $index){
       <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
+        <td>{{i+1}}</td>
+        <td>{{hero.name}}</td>
+        <td>
+          <span class="text-xs w-44" [class.text-success]="hero.canFly" [class.text-accent]="!hero.canFly">
+            {{hero.canFly | canFly}}
+          </span>
+        </td>
+        <td>
+          <span class="text-xs w-44"
+            [style.color]="hero.color | heroTextColor"
+          >
+            {{hero.color | heroColor}}
+          </span>
+        </td>
+        <td>{{hero.creator}}</td>
       </tr>
-      <!-- row 2 -->
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      <!-- row 3 -->
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>
