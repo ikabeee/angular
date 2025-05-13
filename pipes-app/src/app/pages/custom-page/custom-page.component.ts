@@ -4,10 +4,11 @@ import { heroes } from '../../data/heroes.data';
 import { CanFlyPipe } from '../../pipes/canFly.pipe';
 import { HeroColorPipe } from '../../pipes/heroColor.pipe';
 import { HeroTextColorPipe } from '../../pipes/heroTextColor.pipe';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-custom-page',
-  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroTextColorPipe],
+  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroTextColorPipe, TitleCasePipe],
   templateUrl: './custom-page.component.html',
   styles: ``
 })
