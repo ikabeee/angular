@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   selector: 'app-switches-page',
   imports: [JsonPipe],
   templateUrl: './switches-page.component.html',
-  styles: ``
 })
-export class SwitchesPageComponent {
-
-}
+export class SwitchesPageComponent {}
