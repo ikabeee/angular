@@ -8,6 +8,6 @@ import { Component, input } from '@angular/core';
 export class CardComponent {
 
   title = input.required();
-  content = input.required();
+
 
 }

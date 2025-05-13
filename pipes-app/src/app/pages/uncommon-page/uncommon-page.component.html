@@ -5,7 +5,59 @@
 
 <div class="grid grid-cols-1 md:grid-cols2 lg:grid-cols-3 gap-4">
   <app-card title="i18nSelectPipe" content="Contenido del hijo">
-    <p>Hola mundo desde el padre</p>
+    <p>Saludos {{client().name}} es un placer {{client().gender |i18nSelect:invitationMap }} </p>
+    <button (click)="changeClient()" class="btn btn-primary">Cambiar client</button>
+  </app-card>
+
+  <app-card title="i18nPluralPipe" content="Contenido del hijo">
+    <p>Actualmente {{clients().length | i18nPlural:clientsMap()}} personas esperando</p>
+    <button [disabled]="clients().length === 0" (click)="deleteClient()" class="btn btn-primary">Borrar client</button>
+  </app-card>
+
+  <app-card title="Slice Pipe" content="Contenido del hijo">
+    <b>Original</b>
+    <p class="text-primary">{{clients().join(', ')}}</p>
+    <b class="mt-2">Slice:0:2</b>
+    <p class="text-primary">{{clients() | slice:0:2}}</p>
+    <b class="mt-2">Slice:1:2</b>
+    <p class="text-primary">{{clients() | slice:1:2}}</p>
+    <b class="mt-2">Slice:0:-3</b>
+    <p class="text-primary">{{clients() | slice:0:-3}}</p>
+  </app-card>
+
+  <app-card title="Json Pipe" content="Contenido del hijo">
+    <p class="text-primary">{{clients() | json}}</p>
+    <p class="text-primary">{{client() | json}}</p>
+    <p class="text-primary">{{clients().join(', ') | json | uppercase}}</p>
+  </app-card>
+
+  <app-card title="Key value pipe" content="Contenido del hijo">
+    <!-- <pre>{{ profile() | keyvalue | json }} </pre> -->
+    @for(item of profile() | keyvalue; track $index){
+    <li>
+      <strong class="font-bold">{{item.key | titlecase}} </strong>
+      <span>{{item.value}}</span>
+    </li>
+    }
+  </app-card>
+
+  <app-card title="Async pipe" content="Contenido del hijo">
+    <p>{{ promiseValue | async }}</p>
+    @if(promiseValue | async; as value){
+    <p class="text-primary">El valor es: {{ value }}</p>
+    } @else {
+    <p class="text-primary">Cargando...</p>
+    }
+    <!--  -->
+    <h3 class="text-2xl">Observable</h3>
+    <p>{{ myObservableTimer | async }}</p>
+    @if(myObservableTimer | async; as value){
+    <p class="text-primary">El valor es: {{ value }}</p>
+    }
+    <!--  -->
+    @else {
+    <p class="text-primary">Cargando...</p>
+    }
   </app-card>
 
 </div>
