@@ -1,1 +1,52 @@
-<p>custom-page works!</p>
+<section class="mx-5">
+  <h1 class="text-2xl font-bold pt-4">Custom pipes</h1>
+  <h3 class="text-xl font-thin">CustomPipes on Angular</h3>
+</section>
+<div class="stats shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Toggle Case Pipe</div>
+    <div class="stat-value">{{name() | toggleCase: upperCase()}} </div>
+    <div class="stat-desc">{{name()}}</div>
+    <button class="btn btn-primary" (click)="upperCase.set(!upperCase())">Change me!</button>
+  </div>
+</div>
+
+<div class="divider my-2"></div>
+
+<div class="overflow-x-auto w-full table-xs">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <tr>
+        <th>1</th>
+        <td>Cy Ganderton</td>
+        <td>Quality Control Specialist</td>
+        <td>Blue</td>
+      </tr>
+      <!-- row 2 -->
+      <tr>
+        <th>2</th>
+        <td>Hart Hagerty</td>
+        <td>Desktop Support Technician</td>
+        <td>Purple</td>
+      </tr>
+      <!-- row 3 -->
+      <tr>
+        <th>3</th>
+        <td>Brice Swyre</td>
+        <td>Tax Accountant</td>
+        <td>Red</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
