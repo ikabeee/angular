@@ -48,8 +48,7 @@
     <label class="col-sm-3 col-form-label">Favoritos</label>
 
     <div class="col-sm-9" formArrayName="favoriteGames">
-      @for (favoriteGame of favoriteGames.controls; track $index; let i =
-      $index) {
+      @for (favoriteGame of favoriteGames.controls; track $index; let i =$index) {
       <div class="mb-1">
         <div class="input-group">
           <input class="form-control" [formControlName]="i" />

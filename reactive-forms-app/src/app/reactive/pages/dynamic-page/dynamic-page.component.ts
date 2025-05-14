@@ -16,12 +16,12 @@ import { FormUtils } from '../../../utils/form-utils';
   templateUrl: './dynamic-page.component.html',
 })
 export class DynamicPageComponent {
-  private fb = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
   formUtils = FormUtils;
 
-  myForm: FormGroup = this.fb.group({
+  myForm: FormGroup = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
-    favoriteGames: this.fb.array(
+    favoriteGames: this.formBuilder.array(
       [
         ['Metal Gear', Validators.required],
         ['Death Stranding', Validators.required],
@@ -31,7 +31,7 @@ export class DynamicPageComponent {
   });
 
   newFavorite = new FormControl('', Validators.required);
-  // newFavorite = this.fb.control([])
+  // newFavorite = this.formBuilder.control([])
 
   get favoriteGames() {
     return this.myForm.get('favoriteGames') as FormArray;
@@ -41,7 +41,7 @@ export class DynamicPageComponent {
     if (this.newFavorite.invalid) return;
     const newGame = this.newFavorite.value;
 
-    this.favoriteGames.push(this.fb.control(newGame, Validators.required));
+    this.favoriteGames.push(this.formBuilder.control(newGame, Validators.required));
 
     this.newFavorite.reset();
   }
