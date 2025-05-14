@@ -12,7 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         gap: 1rem;
         justify-content: center;
         align-items: center;
-      }w
+      }
 
   `,
 })
