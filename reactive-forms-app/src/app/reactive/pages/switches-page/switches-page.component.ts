@@ -14,16 +14,17 @@ import { FormUtils } from '../../../utils/form-utils';
   templateUrl: './switches-page.component.html',
 })
 export class SwitchesPageComponent {
-  private fb = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
   formUtils = FormUtils;
 
-  myForm: FormGroup = this.fb.group({
+  myForm: FormGroup = this.formBuilder.group({
     gender: ['M', Validators.required],
     wantNotifications: [true],
     termAndConditions: [false, Validators.requiredTrue],
   });
 
   onSubmit() {
+    // Toca todos lo campos del formulario
     this.myForm.markAllAsTouched();
 
     console.log(this.myForm.value);
