@@ -61,6 +61,7 @@ export class MarkersPageComponent implements AfterViewInit {
     this.map.set(map);
   }
 
+  //Genera un marker en el mapa al momento de hacer click
   mapClick(event: mapboxgl.MapMouseEvent) {
     if (!this.map()) return;
 

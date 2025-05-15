@@ -74,20 +74,21 @@ export class FullscreenMapPageComponent implements AfterViewInit {
   }
   // Escucha los eventos del mapa y actualiza las señales correspondientes
   mapListeners(map: mapboxgl.Map) {
+    // Se escucha el evento de zoom del mapa
     map.on('zoomend', (event) => {
       const newZoom = event.target.getZoom();
       this.zoom.set(newZoom);
     });
-
+    // Se escucha el evento de movimiento del mapa
     map.on('moveend', () => {
       const center = map.getCenter();
       this.coordinates.set(center);
     });
-
+    // Se escucha el evento de carga del mapa
     map.on('load', () => {
       console.log('Map loaded');
     });
-
+    //Controles de mapbox
     map.addControl(new mapboxgl.FullscreenControl());
     map.addControl(new mapboxgl.NavigationControl());
     map.addControl(new mapboxgl.ScaleControl());
