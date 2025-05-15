@@ -32,15 +32,16 @@ export class HomePageComponent implements OnInit, OnChanges {
     //   this.signalProperty.set('Juan Carlos');
     // }, 2000);
   }
-
+//Forma tradicional de Angular
   changeTraditional() {
     this.traditionalProperty = 'Fernando Herrera';
   }
-
+//Forma reactiva de Angular (Signals)
   changeSignal() {
     this.signalProperty.set('Fernando Herrera');
   }
 
+  // Se dispara una vez que el componente se ha inicializado
   basicEffect = effect((onCleanup) => {
     log('effect', 'Disparar efectos secundarios');
 
