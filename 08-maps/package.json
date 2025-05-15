@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "set-env": "node ./scripts/set-env.js",
+    "postinstall": "npm run set-env"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +21,7 @@
     "@angular/router": "^19.2.0",
     "@tailwindcss/postcss": "^4.1.6",
     "daisyui": "^5.0.35",
+    "dotenv": "^16.5.0",
     "mapbox-gl": "^3.12.0",
     "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
