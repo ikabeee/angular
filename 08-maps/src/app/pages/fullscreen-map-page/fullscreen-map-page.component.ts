@@ -38,6 +38,7 @@ mapboxgl.accessToken = environment.mapboxKey;
   `,
 })
 export class FullscreenMapPageComponent implements AfterViewInit {
+  //Local Reference to the map div element
   divElement = viewChild<ElementRef>('map');
   map = signal<mapboxgl.Map | null>(null);
 
@@ -46,14 +47,14 @@ export class FullscreenMapPageComponent implements AfterViewInit {
     lng: -74.5,
     lat: 40,
   });
-
+  // Se define el zoom como un efecto que se ejecuta cada vez que cambia el valor de zoom
   zoomEffect = effect(() => {
     if (!this.map()) return;
 
     this.map()?.setZoom(this.zoom());
     // this.map()?.zoomTo(this.zoom());
   });
-
+  // Se construye el mapa al iniciar la vista
   async ngAfterViewInit() {
     if (!this.divElement()?.nativeElement) return;
 
@@ -71,7 +72,7 @@ export class FullscreenMapPageComponent implements AfterViewInit {
 
     this.mapListeners(map);
   }
-
+  // Escucha los eventos del mapa y actualiza las señales correspondientes
   mapListeners(map: mapboxgl.Map) {
     map.on('zoomend', (event) => {
       const newZoom = event.target.getZoom();
