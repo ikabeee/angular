@@ -23,8 +23,6 @@ import { ProductImagePipe } from '@products/pipes/product-image.pipe';
       width: 100%;
       height: 500px;
     }
-
-
   `,
 })
 export class ProductCarouselComponent implements AfterViewInit {

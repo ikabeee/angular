@@ -14,6 +14,7 @@ import { PaginationService } from '@shared/components/pagination/pagination.serv
   templateUrl: './gender-page.component.html',
 })
 export class GenderPageComponent {
+  // Provides access to information about a route associated with a component that is loaded in an outlet
   route = inject(ActivatedRoute);
   productsService = inject(ProductsService);
   paginationService = inject(PaginationService);
